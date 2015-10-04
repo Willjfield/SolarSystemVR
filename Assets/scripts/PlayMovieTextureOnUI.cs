@@ -11,6 +11,7 @@ public class PlayMovieTextureOnUI : MonoBehaviour
 	void Start () 
 	{
 		webcamTexture = new WebCamTexture();
+
 		//rawimage.texture = webcamTexture;
 		//rawimage.material.mainTexture = webcamTexture;
 		webcamTexture.Play();

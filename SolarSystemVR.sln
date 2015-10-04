@@ -1,6 +1,8 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2008
 
+Project("{F009B780-E82F-0152-718A-C9B4417991A0}") = "SolarSystemVR", "Assembly-CSharp-firstpass.csproj", "{2D330DD9-E83E-A83E-3588-529590971594}"
+EndProject
 Project("{F009B780-E82F-0152-718A-C9B4417991A0}") = "SolarSystemVR", "Assembly-CSharp.csproj", "{82628E4D-85DF-7BF0-3778-F44FF2AA7BF0}"
 EndProject
 Project("{F009B780-E82F-0152-718A-C9B4417991A0}") = "SolarSystemVR", "Assembly-CSharp-Editor.csproj", "{B7FA1768-D5AA-3927-BE1C-C94E8A5F0F10}"
@@ -11,6 +13,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2D330DD9-E83E-A83E-3588-529590971594}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D330DD9-E83E-A83E-3588-529590971594}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D330DD9-E83E-A83E-3588-529590971594}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D330DD9-E83E-A83E-3588-529590971594}.Release|Any CPU.Build.0 = Release|Any CPU
 		{82628E4D-85DF-7BF0-3778-F44FF2AA7BF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{82628E4D-85DF-7BF0-3778-F44FF2AA7BF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{82628E4D-85DF-7BF0-3778-F44FF2AA7BF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -23,7 +29,7 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-																																																									GlobalSection(MonoDevelopProperties) = preSolution
+																																																														GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1

@@ -55,8 +55,9 @@ public struct ClientLog
 /// </summary>
 public class OSCHandler : MonoBehaviour
 {
-	public GameObject MainCamera;
-	public Vector3 camPos;
+
+	/*public GameObject MainCamera;
+	public Vector3 camPos;*/
 	#region Singleton Constructors
 	static OSCHandler()
 	{
@@ -103,15 +104,16 @@ public class OSCHandler : MonoBehaviour
 		//CreateClient("TouchOSC Bridge", IPAddress.Parse("127.0.0.1"), 9000);
 
 		//ENTER THE IP ADDRESS OF THE OSC SENDER
-		CreateClient("TouchOSC Bridge", IPAddress.Parse("192.168.2.5"), 9000);
+		CreateClient("TouchOSC Bridge", IPAddress.Parse("192.168.1.7"), 9000);
+		//CreateClient("TouchOSC Bridge", IPAddress.Parse("192.168.2.5"), 9000);
 
         //Initialize OSC servers (listeners)
         //Example:
 		CreateServer ("TouchOSC Server", 12000);
         //CreateServer("AndroidPhone", 6666);
 
-		MainCamera = GameObject.Find("MainCamera");
-		camPos.Set(0, 0, 0);
+		/*MainCamera = GameObject.Find("MainCamera");
+		camPos.Set(0, 0, 0);*/
 	}
 	
 	#region Properties
@@ -215,10 +217,11 @@ public class OSCHandler : MonoBehaviour
 		Debug.Log ("packet received");
 		//String incoming = packet.Data [0][0];
 		//Array incoming = packet.Data [0];
-		Debug.Log (packet.Data [0].GetType());
-		//Debug.Log (packet.Data [1]);
+		//Debug.Log (packet.Data [0].GetType());
+		//Debug.Log ((float)packet.Data[0]);
 		//Debug.Log (packet.Data [2]);
-		camPos.Set((float)packet.Data [0], (float)packet.Data [1], (float)packet.Data [2]);
+		//Debug.Log (packet.Data[1]);
+		//camPos.Set((float)packet.Data [0], (float)packet.Data [1], (float)packet.Data [2]);
 		//Debug.Log (MainCamera);
 
 
@@ -300,7 +303,7 @@ public class OSCHandler : MonoBehaviour
 	/// </summary>
 	public void UpdateLogs()
 	{
-		MainCamera.transform.position = camPos;
+	//	MainCamera.transform.position = camPos;
 		foreach(KeyValuePair<string,ServerLog> pair in _servers)
 		{
 			if(_servers[pair.Key].server.LastReceivedPacket != null)

@@ -26,6 +26,8 @@ using System.Text;
 using UnityOSC;
 
 public class oscControl : MonoBehaviour {
+	public GameObject MainCamera;
+	public Vector3 camPos;
 	
 	private Dictionary<string, ServerLog> servers;
 	
@@ -33,6 +35,8 @@ public class oscControl : MonoBehaviour {
 	void Start() {	
 		OSCHandler.Instance.Init(); //init OSC
 		servers = new Dictionary<string, ServerLog>();
+		MainCamera = GameObject.Find("MainCamera");
+		camPos.Set(0, 0, 0);
 	}
 
 	// NOTE: The received messages at each server are updated here
@@ -45,17 +49,24 @@ public class oscControl : MonoBehaviour {
 		
 	    foreach( KeyValuePair<string, ServerLog> item in servers )
 		{
+
 			// If we have received at least one packet,
 			// show the last received from the log in the Debug console
 			if(item.Value.log.Count > 0) 
 			{
 				int lastPacketIndex = item.Value.packets.Count - 1;
-				
-				UnityEngine.Debug.Log(String.Format("SERVER: {0} ADDRESS: {1} VALUE 0: {2}", 
+				if(lastPacketIndex%2==1){
+				Debug.Log ( item.Value.packets[lastPacketIndex].Data[0]);
+				}
+				camPos.Set((float)item.Value.packets[lastPacketIndex].Data[0], (float)item.Value.packets[lastPacketIndex].Data[0], (float)item.Value.packets[lastPacketIndex].Data[0]);
+				/*UnityEngine.Debug.Log(String.Format("SERVER: {0} ADDRESS: {1} VALUE 0: {2}", 
 				                                    item.Key, // Server name
 				                                    item.Value.packets[lastPacketIndex].Address, // OSC address
 				                                    item.Value.packets[lastPacketIndex].Data[0].ToString())); //First data value
+*/				
+
 			}
 	    }
+		MainCamera.transform.position = camPos;
 	}
 }
